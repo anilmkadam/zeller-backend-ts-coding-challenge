@@ -1,4 +1,4 @@
-import {describe, expect, test} from '@jest/globals';
+import {describe, expect, test, beforeEach} from '@jest/globals';
 import {CheckoutService} from '../src/services/checkout.service'
 import { Offer } from '../src/models/offer.model';
 import { Discount } from '../src/models/discount.model';
@@ -48,7 +48,7 @@ describe("Checkout Service Specs.", () => {
         [1,2,3,4].forEach((n) => checkoutService.scan('ipd'));
 
         expect(checkoutService.cart.size).toBe(1);
-        expect(checkoutService.cart.get('ipd').count).toBe(4);
+        expect(checkoutService.cart.get('ipd')?.count).toBe(4);
         expect(checkoutService.total()).toBe(1999.96)
     });
 
@@ -59,7 +59,7 @@ describe("Checkout Service Specs.", () => {
         checkoutService.scan("vga");
 
         expect(checkoutService.cart.size).toBe(2);
-        expect(checkoutService.cart.get('atv').count).toBe(3);
+        expect(checkoutService.cart.get('atv')?.count).toBe(3);
         expect(checkoutService.total()).toBe(249.00)
     });
 
@@ -73,7 +73,7 @@ describe("Checkout Service Specs.", () => {
         checkoutService.scan("ipd");
 
         expect(checkoutService.cart.size).toBe(2);
-        expect(checkoutService.cart.get('ipd').count).toBe(5);
+        expect(checkoutService.cart.get('ipd')?.count).toBe(5);
         expect(checkoutService.total()).toBe(2718.95)
     });
 })

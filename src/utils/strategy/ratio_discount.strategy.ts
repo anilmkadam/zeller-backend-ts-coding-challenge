@@ -4,7 +4,7 @@ import { DiscountStrategy } from "../../models/interfaces/discount_strategy.inte
 
 export class RatioDiscountStrategy implements DiscountStrategy {
     apply(applicableDiscount: Discount, cartProduct: CartData): number {
-        return ((applicableDiscount.eligibleQuantity) * applicableDiscount.discountedPrice) 
+        return (((Math.floor(cartProduct.count / applicableDiscount.eligibleQuantity)) * applicableDiscount.eligibleQuantity) * applicableDiscount.discountedPrice) 
                 + ((cartProduct.count % applicableDiscount.eligibleQuantity) * cartProduct.product.price);
     }
 

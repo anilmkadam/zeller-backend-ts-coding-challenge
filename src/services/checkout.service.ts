@@ -24,11 +24,9 @@ export class CheckoutService implements Cart {
           }
         this.storeController.removeProduct(sku);
     }
-    // Add unit test case
 
     total(): number {
         let total = 0;
-        console.log(JSON.stringify(this.cart));
         if(this.cart) {
             this.cart.forEach((cartProduct, sku) => {
                 const pricingCalculator = PricingFactory.getInstnace(sku);
