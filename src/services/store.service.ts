@@ -11,7 +11,10 @@ export class StoreService implements Store {
     }
     getProductStock(sku: string): ProductStock {
         const inventory = this.storeAdapter.getInventory();
-        return inventory.getProduct(sku);
+        const productStock = inventory.getProduct(sku);
+        if(!productStock)
+            throw new Error("Product not found in inventory!!");
+        return productStock;
     }
 
     addProduct(product: Product, quantity?: number) {

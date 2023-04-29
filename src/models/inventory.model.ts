@@ -21,7 +21,7 @@ export class Inventory {
             throw new Error("Product doesn't exists");
         }
         existingProduct.quantity -= quantity;
-        if(existingProduct.quantity === 0) {
+        if(existingProduct.quantity <= 0) {
             this.products.delete(sku);
         }
     }
