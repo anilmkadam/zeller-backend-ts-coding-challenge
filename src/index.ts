@@ -22,10 +22,6 @@ const checkoutController = new CheckoutController(offers);
 checkoutController.scan("atv");
 checkoutController.scan("atv");
 checkoutController.scan("atv");
-checkoutController.scan("atv");
-checkoutController.scan("atv");
-checkoutController.scan("atv");
-checkoutController.scan("atv");
-// checkoutController.scan("vga");
+checkoutController.scan("vga");
 
 console.log(checkoutController.total());
